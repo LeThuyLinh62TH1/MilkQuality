@@ -1,0 +1,13 @@
+-BTL PHÂN TÍCH DỮ LIỆU LỚN:
+hdfs dfs -rm -r -skipTrash /BTL-KMean
+
+
+hdfs dfs -mkdir -p /BTL-KMean/input
+
+hdfs dfs -put "H:\62TH1\PHAN_TICH_DLL\PTDLL\Chay_demo\intput\data.txt" /BTL-KMean/input
+
+hadoop jar H:\62TH1\PHAN_TICH_DLL\PTDLL\Chay_demo\KMean_BTL.jar -Din /BTL-KMean/input/data.txt -Dlines 300 -Dresult cluster_centers.txt -Dmaxloop 50 -Dk 2 -Dthresh 0.0001 -DNumReduceTask 2 -Dout /BTL-KMean/cluster_centers
+
+
+Lệnh ban đầu: 
+hadoop jar D:\jar\KMean_BTL.jar -Din /BTL-KMean/input/data.txt -Dlines 300 -Dresult result.txt -Dmaxloop 50 -Dk 2 -Dthresh 0.0001 -DNumReduceTask 2 -Dout /BTL-KMean/k-output
